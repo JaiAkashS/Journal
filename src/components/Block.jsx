@@ -6,7 +6,7 @@ const Block = ({date}) => {
     const [color,setColor] = useState('')
     const [showPopup,setShowPopup] = useState(false)
     const [rating,setRating] = useState(0)
-    
+    // const [info,setInfo] = useState({})
     
     const handleClick = () =>{
         setShowPopup(true)
@@ -24,8 +24,8 @@ const Block = ({date}) => {
         return {
             backgroundColor: color,
             border: "1px solid black",
-            height: "10px",
-            width: "10px"
+            height: "20px",
+            width: "20px"
         }
     }
     
@@ -34,6 +34,7 @@ const Block = ({date}) => {
             <div onClick={handleClick} style={blockStyle()}></div>
             <Popup show = {showPopup} onClose={() => setShowPopup(false)}>
                 <form onSubmit={addRating}>
+                    <p>{date}</p>
                     <input type="text" name="" id="" />
                     <input type="number" value={rating} onChange={(e) =>setRating(Number(e.target.value))} />
                     <button type="submit">Save</button>

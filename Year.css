@@ -2,9 +2,18 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    width: 1000px;
+    margin: auto;
 }
 
 
 .ParentDiv > div{
     margin: 2.5px 2.5px; 
+}
+
+
+.Month-Container{
+    width: 1400px;
+    margin: auto;
+    border: 3px solid grey;
 }
