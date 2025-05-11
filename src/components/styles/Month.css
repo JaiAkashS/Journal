@@ -1,9 +1,13 @@
 .ParentDiv {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
-    width: 1000px;
+    justify-content:flex-start;
+    width: 80rem;
     margin: auto;
+}
+
+.Block {
+    padding:10px;
 }
 
 
@@ -13,7 +17,7 @@
 
 
 .Month-Container{
-    width: 1400px;
+    width: 100rem;
     margin: auto;
     border: 3px solid grey;
 }

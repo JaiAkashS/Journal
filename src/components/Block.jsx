@@ -1,11 +1,12 @@
 import { useState } from "react"
 import Popup from "./Popup"
 import setHexCode from "../util/SetHexCode"
+import  "./styles/Month.css"
 
 const Block = ({date}) => {
     const [color,setColor] = useState('')
     const [showPopup,setShowPopup] = useState(false)
-    const [rating,setRating] = useState(null)
+    const [rating,setRating] = useState(0)
     // const [info,setInfo] = useState({})
     
     const handleClick = () =>{
@@ -15,8 +16,6 @@ const Block = ({date}) => {
     const addRating = (event) => {
         event.preventDefault()
         setShowPopup(false)
-        console.log("Rating" , rating)
-        console.log(setHexCode(rating.valueOf()))
         setColor(setHexCode(rating))
     }
 
@@ -24,23 +23,24 @@ const Block = ({date}) => {
         return {
             backgroundColor: color,
             border: "1px solid black",
-            height: "20px",
-            width: "20px"
+            height: "2rem",
+            width: "2rem"
         }
     }
     
     return (
-        <>
+        <div className="Block">
+            <label htmlFor='rating'>{date}</label>
             <div onClick={handleClick} style={blockStyle()}></div>
             <Popup show = {showPopup} onClose={() => setShowPopup(false)}>
                 <form onSubmit={addRating}>
                     <p>{date}</p>
                     <input type="text" name="" id="" />
-                    <input required type="number" value={rating} onChange={(e) =>setRating(Number(e.target.value))} />
+                    <input id='rating' required type="number" value={rating} onChange={(e) =>setRating(Number(e.target.value))} />
                     <button type="submit">Save</button>
                 </form>            
             </Popup>
-        </>
+        </div>
     )
 }
 

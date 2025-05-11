@@ -1,7 +1,7 @@
 const setHexCode = (rating) => {
     // const num = Number(rating)
     switch (rating) {
-      case 0:
+      case 0:  return '#ffffff';
       case 1:  return "#ff0000";
       case 2:  return "#ff3300";
       case 3:  return "#ff6600";

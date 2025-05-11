@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import Block from "./Block";
-import "./styles/Year.css"
+import "./styles/Month.css"
 
 const Month = ({ monthName, monthNum, noOfDays, year }) => {
     const [dates, setDates] = useState([]);
@@ -24,12 +24,12 @@ const Month = ({ monthName, monthNum, noOfDays, year }) => {
 
     return (
         <div className="Month-Container">
-        <h1>{monthName}</h1>
-        <div className="ParentDiv">
+            <h1>{monthName}</h1>
+            <div className="ParentDiv">
                 {dates.map((d, idx) => (
-                    <Block key={idx} date={d} />
+                    <Block className="Block" key={idx} date={d.slice(0,2)} />
                 ))}
-        </div>
+            </div>
         </div>    
     );
 };
