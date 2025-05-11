@@ -5,7 +5,7 @@ import setHexCode from "../util/SetHexCode"
 const Block = ({date}) => {
     const [color,setColor] = useState('')
     const [showPopup,setShowPopup] = useState(false)
-    const [rating,setRating] = useState(0)
+    const [rating,setRating] = useState(null)
     // const [info,setInfo] = useState({})
     
     const handleClick = () =>{
@@ -36,7 +36,7 @@ const Block = ({date}) => {
                 <form onSubmit={addRating}>
                     <p>{date}</p>
                     <input type="text" name="" id="" />
-                    <input type="number" value={rating} onChange={(e) =>setRating(Number(e.target.value))} />
+                    <input required type="number" value={rating} onChange={(e) =>setRating(Number(e.target.value))} />
                     <button type="submit">Save</button>
                 </form>            
             </Popup>

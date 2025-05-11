@@ -1,5 +1,5 @@
 import Block from "./Block";
-import 'C:\\Users\\Tharun\\Documents\\CodingStuff\\dayBlocks\\Year.css';
+import './styles/Year.css';
 
     
 const Year = () =>{
@@ -13,4 +13,4 @@ const Year = () =>{
 }
 
 
-export default Year
+export default Year 

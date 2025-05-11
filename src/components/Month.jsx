@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import Block from "./Block";
-import "C:\\Users\\Tharun\\Documents\\CodingStuff\\dayBlocks\\Year.css"
+import "./styles/Year.css"
 
 const Month = ({ monthName, monthNum, noOfDays, year }) => {
     const [dates, setDates] = useState([]);
