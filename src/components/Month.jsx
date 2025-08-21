@@ -1,33 +1,26 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import Block from "./Block";
 import "./styles/Month.css"
 
 const Month = ({ monthName, monthNum, noOfDays, year }) => {
     const [dates, setDates] = useState([]);
-
-    useEffect(() => {
-        let tempDates = [];
-        let date = new Date(year, monthNum, 1);
-
-        for (let i = 0; i < noOfDays; i++) {
-            let day = date.getDate();
-            let month = date.getMonth() + 1; // Month is 0-indexed
-            let formattedDate = `${day.toString().padStart(2, '0')}/${month.toString().padStart(2, '0')}/${year}`;
-            tempDates.push(formattedDate);
-
-            // Move to next day
-            date.setDate(date.getDate() + 1);
-        }
-
-        setDates(tempDates);
-    }, [monthNum, noOfDays, year]);
+    const tempDates = useMemo(()=>{
+            let tempDate = []
+            let date = new Date(year,monthNum,1)
+            for(let i = 0;i<noOfDays;i++){
+                tempDate.push(date.toDateString())
+                date.setDate(date.getDate()+1)
+            }
+            setDates(tempDate)
+            return tempDate;
+        },[monthName, monthNum, noOfDays, year ])
 
     return (
         <div className="Month-Container">
             <h1>{monthName}</h1>
             <div className="ParentDiv">
                 {dates.map((d, idx) => (
-                    <Block className="Block" key={idx} date={d.slice(0,2)} />
+                    <Block className="Block" key={idx} date={d} />
                 ))}
             </div>
         </div>    

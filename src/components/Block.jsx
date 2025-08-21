@@ -30,12 +30,13 @@ const Block = ({date}) => {
     
     return (
         <div className="Block">
-            <label htmlFor='rating'>{date}</label>
+            <label htmlFor='rating'>{date.slice(8,10)}</label>
             <div onClick={handleClick} style={blockStyle()}></div>
             <Popup show = {showPopup} onClose={() => setShowPopup(false)}>
                 <form onSubmit={addRating}>
                     <p>{date}</p>
-                    <input type="text" name="" id="" />
+                    
+                    <textarea name="" id=""></textarea>
                     <input id='rating' required type="number" value={rating} onChange={(e) =>setRating(Number(e.target.value))} />
                     <button type="submit">Save</button>
                 </form>            
